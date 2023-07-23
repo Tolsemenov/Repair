@@ -1,12 +1,16 @@
-#include <Elevator.h>
+#include <WallpaperRoll.h>
 
-Elevator::Elevator(){
+WallpaperRoll::WallpaperRoll(){
 	
 	
 }
 
 
-Elevator::~Elevator(){
+WallpaperRoll::~WallpaperRoll(){
 	
 	
+}
+
+
+char nameWallpaperRoll();
 }

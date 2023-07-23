@@ -1,8 +1,8 @@
-class Elevator{
+class WallpaperRoll {
 	
 	public:
-		Elevator();
+		WallpaperRoll();
 		
-		~Elevator();
-		
+		~WallpaperRoll();
+		char nameWallpaperRoll();
 }
