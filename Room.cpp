@@ -1,49 +1,41 @@
 #include <iostream>
+
 #include <Room.h>
 
 Room::Room(){
 	
-	
+	wallpaperAreaMetre = 0;
 }
 
 
 Room::~Room(){
 	
-	
+	delete[] nameRoom;
 }
 
-void Room::initRoom(int l, int w, int h, WallpaperRoll wallpaper, char name) {
-	nameRoom = name;
+void Room::initRoom(int l, int w, int h, WallpaperRoll wallpaper, const char* name) {
+	strcpy(nameRoom, name);
 	length = l;
 	width = w;
 	height = h;
-	wallpaperRoll = wallpaper;
-	wallpaperArea = 2 * (length * height + width * height);
+	//wallpaperRoll = wallpaper;
+	wallpaperAreaMetre = 2 * (length * height + width * height);
+	costWallpaperOnRoom = wallpaperAreaMetre * wallpaper.getCostMetreWallpaperRoll();
 }
 
 void Room::printRoom() {
-	std::cout << "Комната: ";
-	std::cout << nameRoom << std::endl;
-
-	std::cout << "Длинна комнаты: " ;
-	std::cout << length << std:: endl;
-
-	std::cout << "Ширина комнаты: ";
-	std::cout << width << std::endl;
-
-	std::cout << "Высота потолков: ";
-	std::cout << height << std::endl;
-
-	std::cout << "Площадь обоев для комнаты: : ";
-	std::cout << wallpaperArea << std::endl;
-
-	std::cout << "Обои в комнате: : ";
-	std::cout << wallpaperRoll.name << std::endl;
+	std::cout << "Комната: " << nameRoom << std::endl;
+	std::cout << "Длина комнаты: " << length << std:: endl;
+	std::cout << "Ширина комнаты: " << width << std::endl;
+	std::cout << "Высота потолков: " << height << std::endl;
+	std::cout << "Площадь обоев для комнаты: "<< wallpaperAreaMetre << std::endl;
+	std::cout << "Обои в комнате: " << wallpaperRoll.getNameWallpaperRoll() << std::endl;
+	std::cout << "Стоимость обоев в комнате: " << wallpaperRoll.getNameWallpaperRoll() << "\n\n";
 }
 
 
 int Room::getWallpaperArea() {
-	return wallpaperArea;
+	return wallpaperAreaMetre;
 }
 
 int Room::getCostWallpaperOnRoom() {
@@ -51,6 +43,10 @@ int Room::getCostWallpaperOnRoom() {
 }
 
 
-char Room::nameThisRoom() {
+char* Room::getNameThisRoom() {
 	return nameRoom;
+}
+
+WallpaperRoll Room::getWallpaperRoll() {
+	return wallpaperRoll;
 }

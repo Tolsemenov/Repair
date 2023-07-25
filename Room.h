@@ -1,23 +1,27 @@
+
 #include <WallpaperRoll.h>
-
-
 class Room {
 private:
-	char nameRoom;
+	const int SIZE = 20;
+	char* nameRoom = new char[SIZE];
 	int length;
 	int width;
 	int height;
-	int wallpaperArea;
-	WallpaperRoll wallpaperRoll;
+	int wallpaperAreaMetre;
+	
 	int costWallpaperOnRoom;
+	WallpaperRoll wallpaperRoll;
 
 public:
+	
+
 	Room();
 
 	~Room();
-	void initRoom(int l, int w, int h, WallpaperRoll wallpaper, char name);
+	void initRoom(int l, int w, int h, WallpaperRoll wallpaper,const char* name);
 	void printRoom();
 	int getWallpaperArea();
 	int getCostWallpaperOnRoom();
-	char nameThisRoom();
+	char* getNameThisRoom();
+	WallpaperRoll getWallpaperRoll();
 };
