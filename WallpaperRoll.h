@@ -3,17 +3,19 @@
 class WallpaperRoll {
 
 private:
-	const int SIZE = 15;
-	char* name = new char [SIZE];
-	int costMetreWallpaperRoll;			//1 м2
-
-	
-public:
-	WallpaperRoll();
-
-	~WallpaperRoll();
+	char m_name[100];
+	int m_costMetreWallpaperRoll = 0;
 
 	void initWallpaperRoll(const char* nameWallpaperRoll, int costWallpaperRoll);
+public:
+	//В конструкторе нужно стараться инициализировать все поля
+	//Функция инит для пользователя не нужна
+	WallpaperRoll();
+	WallpaperRoll(const char* nameWallpaperRoll, int costWallpaperRoll);
+
+	~WallpaperRoll(){}
+
+	
 	void printWallpaperRoll();
 
 	char* getNameWallpaperRoll();

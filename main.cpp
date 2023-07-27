@@ -7,22 +7,23 @@
 int main(int argc, char **argv){
 	setlocale(LC_ALL, "ru");
 	//Flat flat;
-	Room room1;
-	Room room2;
-	Room room3;
-	WallpaperRoll wallpaperRoll1;
+	
+	
+	WallpaperRoll wallpaperRoll1{ "Yellow", 500 };
 	WallpaperRoll wallpaperRoll2;
 
-	wallpaperRoll1.initWallpaperRoll("Yellow", 500);
 	wallpaperRoll1.printWallpaperRoll();
 
-	room1.initRoom(3, 3, 3, wallpaperRoll2, "Ванная комната");
-	room2.initRoom(2, 3, 3, wallpaperRoll2, "Спальная комната");
-	room2.initRoom(5, 3, 3, wallpaperRoll1, "Гостиная");
+	//WallpaperRoll - без динамической памяти, можем сколько хотим копировать
+	Room room1{ 3, 3, 3, wallpaperRoll2, "Ванная комната" };
+	Room room2(2, 3, 3, {"Green", 200}, "Спальная комната");
+	Room room3(5, 3, 3, wallpaperRoll1, "Гостиная");
 	
-	room1.printRoom();
+	room1.print();
+	room2.print();
+	room3.print();
 	
 
-
+	system("pause");
 
 }
